@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function play(userChoice){
+            const choices = ['rock', 'paper', 'scissors'];
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            const result = document.getElementById('result');
+            document.getElementById('user-choice').textContent = `Your choice: ${userChoice}`;
+            document.getElementById('computer-choice').textContent = `Computer's choice: ${computerChoice}`;
+
+         if (userChoice === computerChoice) {
+          document.getElementById('outcome').textContent = 'Result: It\'s a tie!';
+         } else if (
+         (userChoice === 'rock' && computerChoice === 'scissors') ||
+         (userChoice === 'scissors' && computerChoice === 'paper') ||
+         (userChoice === 'paper' && computerChoice === 'rock')
+         ) {
+         document.getElementById('outcome').textContent = 'Result: You win!';
+         } else {
+         document.getElementById('outcome').textContent = 'Result: You lose!';
+         }
+
+        }
+    </script>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    background-color: rgb(255, 255, 255);
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfoouEkwO_rBDuSWYA6ey_kSgVDmTVAxkIVg&s");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+
+}
+
+#choices {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-style: italic;
+    font-size: large;
+    margin: 5px;
+    height:50px;
+    background-color: rgb(243, 243, 243);
+    
+}
+h1,h3{
+    color:rgb(255, 255, 255);
+    font-style: italic;
+    font;
+    
+}
+#result p {
+    font-size: 18px;
+}
+    </style>
+</head>
+<body>
+    <h1>Rock Paper Scissor</h1>
+    <br>
+    <h3>Select your choice </h3>
+    <br>
+    <div id="choices">
+        <button onclick="play('rock')">Rock</button>
+        <button onclick="play('paper')" >Paper</button>
+        <button onclick="play('scissors')">Scissor</button>
+    </div>
+    <div id="result" style="color: rgb(255, 255, 255);">
+        <p id="user-choice">Your choice: </p>
+        <p id="computer-choice"">Computer's choice: </p>
+        <p id="outcome">Result: </p>
+    </div>
+</body>
+</html>
